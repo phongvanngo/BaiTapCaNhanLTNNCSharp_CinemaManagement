@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CinemaManagement
+namespace CinemaManagement.Admin.ManagementPages
 {
-    public partial class Form1 : Form
+    public partial class FoodsManagement : BaseMangementPage
     {
-        public Form1()
+        public FoodsManagement()
         {
             InitializeComponent();
         }
