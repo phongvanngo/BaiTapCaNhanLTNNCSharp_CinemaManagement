@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,14 +47,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +80,12 @@
     <Compile Include="Admin\ManagementPages\MoviesManagement.Designer.cs">
       <DependentUpon>MoviesManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ManagementPages\ShowTimeManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin\ManagementPages\ShowTimeManagement.Designer.cs">
+      <DependentUpon>ShowTimeManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManagementPages\TheatersManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,9 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManagementPages\MoviesManagement.resx">
       <DependentUpon>MoviesManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ManagementPages\ShowTimeManagement.resx">
+      <DependentUpon>ShowTimeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManagementPages\TheatersManagement.resx">
       <DependentUpon>TheatersManagement.cs</DependentUpon>
@@ -144,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Assets\Picture\NoImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CinemaManagement.Admin.ManagementPages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace CinemaManagement.Admin
 {
     public partial class AdminForm : Form
     {
+        DrinksManagement DrinkPage = new DrinksManagement();
+        FoodsManagement FoodPage = new FoodsManagement();
+        MoviesManagement MoviePage = new MoviesManagement();
+        ShowTimeManagement ShowTimePage = new ShowTimeManagement();
+        TheatersManagement TheaterPage = new TheatersManagement();
         public AdminForm()
         {
             InitializeComponent();
+            DrinkPage.Dock = DockStyle.Fill;
+            FoodPage.Dock = DockStyle.Fill;
+            MoviePage.Dock = DockStyle.Fill;
+            TheaterPage.Dock = DockStyle.Fill;
+            ShowTimePage.Dock = DockStyle.Fill;
+
+            MovieManagementTabPage.Controls.Add(MoviePage);
+            TheaterManagementTabPage.Controls.Add(TheaterPage);
+            ShowTimeManagementTabPage.Controls.Add(ShowTimePage);
+            FoodsManagementTabPage.Controls.Add(FoodPage);
+            DrinksManagementTabPage.Controls.Add(DrinkPage);
+            
         }
     }
 }
