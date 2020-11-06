@@ -40,6 +40,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +48,6 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -88,7 +88,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 27);
             this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "fadsfadsf";
             // 
             // button1
             // 
@@ -178,8 +177,15 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 28);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Chỉnh sửa phim";
+            this.button2.Text = "Cập nhật";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(27, 58);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(397, 27);
+            this.textBox1.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -202,12 +208,12 @@
             this.Price,
             this.Label,
             this.Image});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 27);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 24);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(755, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(755, 261);
             this.dataGridView1.TabIndex = 0;
             // 
             // Id
@@ -249,14 +255,6 @@
             this.Image.MinimumWidth = 6;
             this.Image.Name = "Image";
             this.Image.ReadOnly = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(27, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(397, 27);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "fadsfadsf";
             // 
             // MoviesManagement
             // 

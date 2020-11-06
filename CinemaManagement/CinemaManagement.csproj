@@ -108,8 +108,14 @@
     <EmbeddedResource Include="Admin\ManagementPages\DrinksManagement.resx">
       <DependentUpon>DrinksManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ManagementPages\FoodsManagement.resx">
+      <DependentUpon>FoodsManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManagementPages\MoviesManagement.resx">
       <DependentUpon>MoviesManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ManagementPages\TheatersManagement.resx">
+      <DependentUpon>TheatersManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
