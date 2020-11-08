@@ -1,23 +1,24 @@
-﻿using System;
+﻿using CinemaManagement.Models;
+using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
-using CinemaManagement.Model;
-using System.Data;
-using System.Data.SQLite;
-using Dapper;
 
-namespace CinemaManagement.Database
+namespace CinemaManagement.Database.DataProvider
 {
-    public static class DataProvider
+    class MovieDataAccess
     {
         public static List<MovieModel> LoadMovies()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<MovieModel>("select * from Movie", new DynamicParameters());
+                //MessageBox.Show((ou as MovieModel).FirstName);
                 return output.ToList();
             }
         }
