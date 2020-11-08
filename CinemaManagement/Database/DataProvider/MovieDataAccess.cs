@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CinemaManagement.Database.DataProvider
 {
@@ -23,7 +24,7 @@ namespace CinemaManagement.Database.DataProvider
             }
         }
 
-        public static void UpdateMovies(MovieModel movie)
+        public static void UpdateMovie(MovieModel movie)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -31,6 +32,26 @@ namespace CinemaManagement.Database.DataProvider
                             "SET Name = @Name, Time = @Time, Classify = @Classify, Price = @Price, Image = @Image " +
                             "WHERE MovieID = @MovieID",
                             movie);
+            }
+        }
+
+        public static void SaveMovie(MovieModel movie)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Movie (MovieID,Name,Price,Image,Time,Classify) " +
+                    "values(@MovieID,@Name,@Price,@Image,@Time,@Classify)"
+                    , movie);
+            }
+        }        
+        
+        public static void DeleteMovie(string MovieID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                //MessageBox.Show(string.Format(@"DELETE FROM Movie WHERE MovieID = {0}", MovieID));
+                string sqlcommnad = "DELETE FROM Movie WHERE MovieID = '" + MovieID + "'";
+                cnn.Execute(sqlcommnad);
             }
         }
         private static string LoadConnectionString(string id = "Default")

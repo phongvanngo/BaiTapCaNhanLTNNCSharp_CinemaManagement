@@ -18,5 +18,10 @@ namespace CinemaManagement.MyUtilities
             minute = min % 60;
             return min / 60;
         }
+
+        public static string GenerateCode()
+        {
+            return Guid.NewGuid().ToString().GetHashCode().ToString("x");
+        }
     }
 }

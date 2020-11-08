@@ -388,20 +388,21 @@
             this.chỉnhSửaPhimToolStripMenuItem,
             this.xóaPhimToolStripMenuItem});
             this.contextMenuStrip_MovieListTable.Name = "contextMenuStrip1";
-            this.contextMenuStrip_MovieListTable.Size = new System.Drawing.Size(181, 52);
+            this.contextMenuStrip_MovieListTable.Size = new System.Drawing.Size(211, 80);
             // 
             // chỉnhSửaPhimToolStripMenuItem
             // 
             this.chỉnhSửaPhimToolStripMenuItem.Name = "chỉnhSửaPhimToolStripMenuItem";
-            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.chỉnhSửaPhimToolStripMenuItem.Text = "Chỉnh sửa phim";
             this.chỉnhSửaPhimToolStripMenuItem.Click += new System.EventHandler(this.EditMovieToolStripMenuItem_Click);
             // 
             // xóaPhimToolStripMenuItem
             // 
             this.xóaPhimToolStripMenuItem.Name = "xóaPhimToolStripMenuItem";
-            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.xóaPhimToolStripMenuItem.Text = "Xóa phim";
+            this.xóaPhimToolStripMenuItem.Click += new System.EventHandler(this.DeleteMovieToolStripMenuItem_Click);
             // 
             // MoviesManagement
             // 

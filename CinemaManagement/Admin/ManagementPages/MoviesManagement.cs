@@ -13,6 +13,7 @@ using System.Reflection;
 using CinemaManagement.Database.DataProvider;
 using CinemaManagement.MyUtilities;
 using System.Configuration;
+using System.Runtime.InteropServices;
 
 namespace CinemaManagement.Admin.ManagementPages
 {
@@ -20,22 +21,30 @@ namespace CinemaManagement.Admin.ManagementPages
     {
         List<MovieModel> movieList = new List<MovieModel>();
         bool IsEditing = false;
-
+        DataTable dtMovieList = new DataTable();
 
         int IndexRowSelected = -1;
         public MoviesManagement()
         {
             InitializeComponent();
+            SetUpTableMovieList();
             RefreshMovieList();
         }
-
-        void RefreshMovieList()
+        void SetUpTableMovieList()
         {
-            movieList = MovieDataAccess.LoadMovies();
-            //var bindinglist = new BindingList<MovieModel>(movieList);
-            //var source = new BindingSource(bindinglist, null);
             Table_MovieList.Columns.Clear();
-            Table_MovieList.DataSource = MovieList;
+
+            //add column for data table;
+            dtMovieList.Columns.Add("MovieId", typeof(string));
+            dtMovieList.Columns.Add("Name", typeof(string));
+            dtMovieList.Columns.Add("Time", typeof(int));
+            dtMovieList.Columns.Add("Classify", typeof(string));
+            dtMovieList.Columns.Add("Price", typeof(int));
+            dtMovieList.Columns.Add("Image", typeof(string));
+
+            Table_MovieList.DataSource = dtMovieList;
+
+            //reassign column name
             Table_MovieList.Columns["MovieID"].HeaderText = "Mã phim";
             Table_MovieList.Columns["Name"].HeaderText = "Tên phim";
             Table_MovieList.Columns["Time"].HeaderText = "Thời lượng";
@@ -43,12 +52,34 @@ namespace CinemaManagement.Admin.ManagementPages
             Table_MovieList.Columns["Price"].HeaderText = "Giá vé";
             Table_MovieList.Columns["Image"].HeaderText = "Hình ảnh";
 
+            // fix size cho columns
             Table_MovieList.Columns["MovieID"].FillWeight = 10F;
             Table_MovieList.Columns["Name"].FillWeight = 40F;
             Table_MovieList.Columns["Time"].FillWeight = 15F;
             Table_MovieList.Columns["Classify"].FillWeight = 10F;
             Table_MovieList.Columns["Price"].FillWeight = 15F;
             Table_MovieList.Columns["Image"].FillWeight = 10F;
+
+            //disable column sort
+            foreach (DataGridViewColumn column in Table_MovieList.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        void RefreshMovieList()
+        {
+            movieList = MovieDataAccess.LoadMovies();
+            foreach (var movie in movieList)
+            {
+                dtMovieList.Rows.Add(
+                movie.MovieID,
+                movie.Name,
+                movie.Time,
+                movie.Classify,
+                movie.Price,
+                movie.Image);
+            }
         }
 
         public List<MovieModel> MovieList { get => movieList; set => movieList = value; }
@@ -62,9 +93,10 @@ namespace CinemaManagement.Admin.ManagementPages
                 pictureBox_MovieImage.ImageLocation = openFileDialog.FileName;
             }
         }
-
+        
         private void Table_MovieList_MouseDown(object sender, MouseEventArgs e)
-        {
+        { 
+            // user right click to datagridview
             if (e.Button == MouseButtons.Right)
             {
                 var hti = Table_MovieList.HitTest(e.X, e.Y);
@@ -74,15 +106,13 @@ namespace CinemaManagement.Admin.ManagementPages
                     Table_MovieList.Rows[hti.RowIndex].Selected = true;
                     IndexRowSelected = hti.RowIndex;
                 }
+                // user right click outside rows
                 catch
                 {
                     IndexRowSelected = -1;
                 };
-                //int a = Table_MovieList.Rows.GetRowCount(DataGridViewElementStates.Selected);
-                //Table_MovieList.Rows.RemoveAt(this.Table_MovieList.SelectedRows[0].Index);
             }
         }
-
 
         private void EditMovieToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -90,13 +120,13 @@ namespace CinemaManagement.Admin.ManagementPages
             if (IndexRowSelected != -1)
             {
                 IsEditing = true;
-                textBox_NameOfMovie.Text = Table_MovieList.Rows[IndexRowSelected].Cells["Name"].Value.ToString();
-                textBox_TicketPrice.Text = Table_MovieList.Rows[IndexRowSelected].Cells["Price"].Value.ToString();
-                comboBox_Classify.Text = Table_MovieList.Rows[IndexRowSelected].Cells["Classify"].Value.ToString();
-                pictureBox_MovieImage.ImageLocation = MyFunction.ConvertString(Table_MovieList.Rows[IndexRowSelected].Cells["Image"].Value);
+                textBox_NameOfMovie.Text = dtMovieList.Rows[IndexRowSelected]["Name"].ToString();
+                textBox_TicketPrice.Text = dtMovieList.Rows[IndexRowSelected]["Price"].ToString();
+                comboBox_Classify.Text = dtMovieList.Rows[IndexRowSelected]["Classify"].ToString();
+                pictureBox_MovieImage.ImageLocation = MyFunction.ConvertString(dtMovieList.Rows[IndexRowSelected]["Image"].ToString());
 
-                numericUpDown_Hour.Value = Convert.ToInt32(Table_MovieList.Rows[IndexRowSelected].Cells["Time"].Value) / 60;
-                numericUpDown_min.Value = Convert.ToInt32(Table_MovieList.Rows[IndexRowSelected].Cells["Time"].Value) % 60;
+                numericUpDown_Hour.Value = Convert.ToInt32(dtMovieList.Rows[IndexRowSelected]["Time"]) / 60;
+                numericUpDown_min.Value = Convert.ToInt32(dtMovieList.Rows[IndexRowSelected]["Time"]) % 60;
             }
         }
 
@@ -110,26 +140,26 @@ namespace CinemaManagement.Admin.ManagementPages
             numericUpDown_min.Value = 0;
         }
 
-
         private void Button_UpdateMovie_Click(object sender, EventArgs e)
         {
             if (IsEditing)
             {
-                Table_MovieList.Rows[IndexRowSelected].Cells["Name"].Value = textBox_NameOfMovie.Text;
-                Table_MovieList.Rows[IndexRowSelected].Cells["Price"].Value = textBox_TicketPrice.Text;
-                Table_MovieList.Rows[IndexRowSelected].Cells["Classify"].Value = comboBox_Classify.Text;
-                Table_MovieList.Rows[IndexRowSelected].Cells["Image"].Value = pictureBox_MovieImage.ImageLocation;
-                Table_MovieList.Rows[IndexRowSelected].Cells["Time"].Value = numericUpDown_Hour.Value * 60 + numericUpDown_min.Value;
+                dtMovieList.Rows[IndexRowSelected]["Name"] = textBox_NameOfMovie.Text;
+                dtMovieList.Rows[IndexRowSelected]["Price"] = textBox_TicketPrice.Text;
+                dtMovieList.Rows[IndexRowSelected]["Classify"] = comboBox_Classify.Text;
+                dtMovieList.Rows[IndexRowSelected]["Image"] = pictureBox_MovieImage.ImageLocation;
+                dtMovieList.Rows[IndexRowSelected]["Time"] = numericUpDown_Hour.Value * 60 + numericUpDown_min.Value;
 
                 MovieModel movie = new MovieModel();
-                movie.MovieID = Table_MovieList.Rows[IndexRowSelected].Cells["MovieID"].Value.ToString();
+
+                movie.MovieID = dtMovieList.Rows[IndexRowSelected]["MovieID"].ToString();
                 movie.Classify = comboBox_Classify.Text;
                 movie.Name = textBox_NameOfMovie.Text;
-                movie.Classify = comboBox_Classify.Text;
                 movie.Time = Convert.ToInt32(numericUpDown_Hour.Value * 60 + numericUpDown_min.Value);
                 movie.Image = pictureBox_MovieImage.ImageLocation == null ? "" : pictureBox_MovieImage.ImageLocation;
                 movie.Price = Convert.ToInt32(textBox_TicketPrice.Text);
-                MovieDataAccess.UpdateMovies(movie);
+
+                MovieDataAccess.UpdateMovie(movie);
 
                 IsEditing = false;
                 ClearInput();
@@ -166,7 +196,7 @@ namespace CinemaManagement.Admin.ManagementPages
 
             //trường hợp không chỉnh sửa phim
             MovieModel movie = new MovieModel();
-            movie.MovieID = "fasdf";
+            movie.MovieID = "MV" + MyFunction.GenerateCode();
             movie.Classify = comboBox_Classify.Text;
             movie.Name = textBox_NameOfMovie.Text;
             movie.Classify = comboBox_Classify.Text;
@@ -174,18 +204,25 @@ namespace CinemaManagement.Admin.ManagementPages
             movie.Image = pictureBox_MovieImage.ImageLocation == null ? "" : pictureBox_MovieImage.ImageLocation;
             movie.Price = Convert.ToInt32(textBox_TicketPrice.Text);
 
-            //Table_MovieList.Rows.Add(
-            //    movie.MovieID,
-            //    movie.Name,
-            //    movie.Price,
-            //    movie.Classify,
-            //    movie.Image,
-            //    movie.Time);
+            dtMovieList.Rows.Add(
+            movie.MovieID,
+            movie.Name,
+            movie.Time,
+            movie.Classify,
+            movie.Price,
+            movie.Image);
 
-            MovieList.Add(movie);
-            Table_MovieList.DataSource = null;
-            Table_MovieList.DataSource = MovieList;
+            MovieDataAccess.SaveMovie(movie);
 
+            ClearInput();
+        }
+        private void DeleteMovieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IndexRowSelected != -1)
+            {
+                MovieDataAccess.DeleteMovie((string)dtMovieList.Rows[IndexRowSelected]["MovieID"]);
+                dtMovieList.Rows[IndexRowSelected].Delete();
+            }
         }
     }
 }
