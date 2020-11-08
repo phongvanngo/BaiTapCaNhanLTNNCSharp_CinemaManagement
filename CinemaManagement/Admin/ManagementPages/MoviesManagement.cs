@@ -183,16 +183,8 @@ namespace CinemaManagement.Admin.ManagementPages
             //    movie.Time);
 
             MovieList.Add(movie);
-            MessageBox.Show(MovieList.Count() + "");
-            Table_MovieList.Columns.Clear();
-            var bindinglist = new BindingList<MovieModel>(movieList);
-            var source = new BindingSource(bindinglist, null);
-            Table_MovieList.DataSource = source;
-
-
-
-
-
+            Table_MovieList.DataSource = null;
+            Table_MovieList.DataSource = MovieList;
 
         }
     }
