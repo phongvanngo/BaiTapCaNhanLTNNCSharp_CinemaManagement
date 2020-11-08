@@ -121,10 +121,12 @@
     <Compile Include="CashierForm.Designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DataProvider\DrinkDataAccess.cs" />
     <Compile Include="Database\DataProvider\FoodDataAccess.cs" />
     <Compile Include="Database\DataProvider\MovieDataAccess.cs" />
     <Compile Include="Database\DataProvider\TheaterDataAccess.cs" />
     <Compile Include="Database\PersonModel.cs" />
+    <Compile Include="Models\DrinkModel.cs" />
     <Compile Include="Models\FoodModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\TheaterModel.cs" />

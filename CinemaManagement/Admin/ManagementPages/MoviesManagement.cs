@@ -192,7 +192,7 @@ namespace CinemaManagement.Admin.ManagementPages
 
             //trường hợp không chỉnh sửa phim
             MovieModel movie = new MovieModel();
-            movie.MovieID = "MV" + MyFunction.GenerateCode();
+            movie.MovieID = "MOV" + MyFunction.GenerateCode();
             movie.Classify = comboBox_Classify.Text;
             movie.Name = textBox_NameOfMovie.Text;
             movie.Classify = comboBox_Classify.Text;

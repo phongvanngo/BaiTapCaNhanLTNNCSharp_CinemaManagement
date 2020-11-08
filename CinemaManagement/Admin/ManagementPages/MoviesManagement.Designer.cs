@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_TicketPrice = new System.Windows.Forms.TextBox();
-            this.button_AddMovie = new System.Windows.Forms.Button();
+            this.Button_AddMovie = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -114,19 +114,19 @@
             this.textBox_TicketPrice.Size = new System.Drawing.Size(180, 30);
             this.textBox_TicketPrice.TabIndex = 4;
             // 
-            // button_AddMovie
+            // Button_AddMovie
             // 
-            this.button_AddMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_AddMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_AddMovie.ForeColor = System.Drawing.Color.Black;
-            this.button_AddMovie.Location = new System.Drawing.Point(688, 329);
-            this.button_AddMovie.Margin = new System.Windows.Forms.Padding(4);
-            this.button_AddMovie.Name = "button_AddMovie";
-            this.button_AddMovie.Size = new System.Drawing.Size(161, 35);
-            this.button_AddMovie.TabIndex = 5;
-            this.button_AddMovie.Text = "Thêm phim mới";
-            this.button_AddMovie.UseVisualStyleBackColor = true;
-            this.button_AddMovie.Click += new System.EventHandler(this.button_AddMovie_Click);
+            this.Button_AddMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button_AddMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button_AddMovie.ForeColor = System.Drawing.Color.Black;
+            this.Button_AddMovie.Location = new System.Drawing.Point(688, 329);
+            this.Button_AddMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.Button_AddMovie.Name = "Button_AddMovie";
+            this.Button_AddMovie.Size = new System.Drawing.Size(161, 35);
+            this.Button_AddMovie.TabIndex = 5;
+            this.Button_AddMovie.Text = "Thêm phim mới";
+            this.Button_AddMovie.UseVisualStyleBackColor = true;
+            this.Button_AddMovie.Click += new System.EventHandler(this.button_AddMovie_Click);
             // 
             // groupBox1
             // 
@@ -142,7 +142,7 @@
             this.groupBox1.Controls.Add(this.comboBox_Classify);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Button_UpdateMovie);
-            this.groupBox1.Controls.Add(this.button_AddMovie);
+            this.groupBox1.Controls.Add(this.Button_AddMovie);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox_TicketPrice);
             this.groupBox1.Controls.Add(this.textBox_NameOfMovie);
@@ -433,7 +433,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_TicketPrice;
-        private System.Windows.Forms.Button button_AddMovie;
+        private System.Windows.Forms.Button Button_AddMovie;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Button_UpdateMovie;
         private System.Windows.Forms.PictureBox pictureBox_MovieImage;
