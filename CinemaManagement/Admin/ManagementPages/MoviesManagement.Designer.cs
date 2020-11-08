@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@
             this.numericUpDown_Hour = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox_MovieImage = new System.Windows.Forms.PictureBox();
-            this.button_add_image = new System.Windows.Forms.Button();
+            this.button_AddImage = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox_Classify = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -136,7 +137,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.pictureBox_MovieImage);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button_add_image);
+            this.groupBox1.Controls.Add(this.button_AddImage);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.comboBox_Classify);
             this.groupBox1.Controls.Add(this.label4);
@@ -218,18 +219,18 @@
             this.pictureBox_MovieImage.TabIndex = 12;
             this.pictureBox_MovieImage.TabStop = false;
             // 
-            // button_add_image
+            // button_AddImage
             // 
-            this.button_add_image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_add_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_add_image.Location = new System.Drawing.Point(229, 181);
-            this.button_add_image.Margin = new System.Windows.Forms.Padding(4);
-            this.button_add_image.Name = "button_add_image";
-            this.button_add_image.Size = new System.Drawing.Size(55, 35);
-            this.button_add_image.TabIndex = 11;
-            this.button_add_image.Text = "...";
-            this.button_add_image.UseVisualStyleBackColor = true;
-            this.button_add_image.Click += new System.EventHandler(this.button_add_image_Click);
+            this.button_AddImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_AddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_AddImage.Location = new System.Drawing.Point(229, 181);
+            this.button_AddImage.Margin = new System.Windows.Forms.Padding(4);
+            this.button_AddImage.Name = "button_AddImage";
+            this.button_AddImage.Size = new System.Drawing.Size(55, 35);
+            this.button_AddImage.TabIndex = 11;
+            this.button_AddImage.Text = "...";
+            this.button_AddImage.UseVisualStyleBackColor = true;
+            this.button_AddImage.Click += new System.EventHandler(this.button_add_image_Click);
             // 
             // label5
             // 
@@ -328,6 +329,8 @@
             this.Table_MovieList.Name = "Table_MovieList";
             this.Table_MovieList.ReadOnly = true;
             this.Table_MovieList.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.Table_MovieList.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Table_MovieList.RowTemplate.Height = 24;
             this.Table_MovieList.Size = new System.Drawing.Size(1016, 368);
             this.Table_MovieList.TabIndex = 0;
@@ -388,19 +391,19 @@
             this.chỉnhSửaPhimToolStripMenuItem,
             this.xóaPhimToolStripMenuItem});
             this.contextMenuStrip_MovieListTable.Name = "contextMenuStrip1";
-            this.contextMenuStrip_MovieListTable.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip_MovieListTable.Size = new System.Drawing.Size(181, 52);
             // 
             // chỉnhSửaPhimToolStripMenuItem
             // 
             this.chỉnhSửaPhimToolStripMenuItem.Name = "chỉnhSửaPhimToolStripMenuItem";
-            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.chỉnhSửaPhimToolStripMenuItem.Text = "Chỉnh sửa phim";
             this.chỉnhSửaPhimToolStripMenuItem.Click += new System.EventHandler(this.EditMovieToolStripMenuItem_Click);
             // 
             // xóaPhimToolStripMenuItem
             // 
             this.xóaPhimToolStripMenuItem.Name = "xóaPhimToolStripMenuItem";
-            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.xóaPhimToolStripMenuItem.Text = "Xóa phim";
             this.xóaPhimToolStripMenuItem.Click += new System.EventHandler(this.DeleteMovieToolStripMenuItem_Click);
             // 
@@ -434,7 +437,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Button_UpdateMovie;
         private System.Windows.Forms.PictureBox pictureBox_MovieImage;
-        private System.Windows.Forms.Button button_add_image;
+        private System.Windows.Forms.Button button_AddImage;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox_Classify;
         private System.Windows.Forms.Label label4;

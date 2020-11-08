@@ -28,51 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox_FoodImage = new System.Windows.Forms.PictureBox();
+            this.button_AddFood = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_Price = new System.Windows.Forms.TextBox();
+            this.textBox_NameOfFood = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Image = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoodName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FoodImage)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBox_FoodImage
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 160);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 175);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox_FoodImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox_FoodImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pictureBox_FoodImage.Location = new System.Drawing.Point(32, 160);
+            this.pictureBox_FoodImage.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox_FoodImage.Name = "pictureBox_FoodImage";
+            this.pictureBox_FoodImage.Size = new System.Drawing.Size(175, 175);
+            this.pictureBox_FoodImage.TabIndex = 12;
+            this.pictureBox_FoodImage.TabStop = false;
             // 
-            // button3
+            // button_AddFood
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(215, 160);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(55, 35);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "...";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_AddFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_AddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_AddFood.Location = new System.Drawing.Point(215, 160);
+            this.button_AddFood.Margin = new System.Windows.Forms.Padding(4);
+            this.button_AddFood.Name = "button_AddFood";
+            this.button_AddFood.Size = new System.Drawing.Size(55, 35);
+            this.button_AddFood.TabIndex = 11;
+            this.button_AddFood.Text = "...";
+            this.button_AddFood.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -138,14 +138,14 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.pictureBox_FoodImage);
+            this.groupBox1.Controls.Add(this.button_AddFood);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox_Price);
+            this.groupBox1.Controls.Add(this.textBox_NameOfFood);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -156,23 +156,23 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // textBox2
+            // textBox_Price
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Location = new System.Drawing.Point(533, 93);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 30);
-            this.textBox2.TabIndex = 4;
+            this.textBox_Price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_Price.Location = new System.Drawing.Point(533, 93);
+            this.textBox_Price.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Price.Name = "textBox_Price";
+            this.textBox_Price.Size = new System.Drawing.Size(180, 30);
+            this.textBox_Price.TabIndex = 4;
             // 
-            // textBox1
+            // textBox_NameOfFood
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(32, 93);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(476, 30);
-            this.textBox1.TabIndex = 0;
+            this.textBox_NameOfFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox_NameOfFood.Location = new System.Drawing.Point(32, 93);
+            this.textBox_NameOfFood.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_NameOfFood.Name = "textBox_NameOfFood";
+            this.textBox_NameOfFood.Size = new System.Drawing.Size(476, 30);
+            this.textBox_NameOfFood.TabIndex = 0;
             // 
             // label3
             // 
@@ -206,21 +206,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(1072, 327);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Image
+            // Id
             // 
-            this.Image.FillWeight = 20F;
-            this.Image.HeaderText = "Hình ảnh";
-            this.Image.MinimumWidth = 6;
-            this.Image.Name = "Image";
-            this.Image.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.FillWeight = 20F;
-            this.Price.HeaderText = "Giá";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
+            this.Id.FillWeight = 20F;
+            this.Id.HeaderText = "Mã món ăn";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // FoodName
             // 
@@ -230,13 +222,21 @@
             this.FoodName.Name = "FoodName";
             this.FoodName.ReadOnly = true;
             // 
-            // Id
+            // Price
             // 
-            this.Id.FillWeight = 20F;
-            this.Id.HeaderText = "Mã món ăn";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.Price.FillWeight = 20F;
+            this.Price.HeaderText = "Giá";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Image
+            // 
+            this.Image.FillWeight = 20F;
+            this.Image.HeaderText = "Hình ảnh";
+            this.Image.MinimumWidth = 6;
+            this.Image.Name = "Image";
+            this.Image.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -260,7 +260,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FoodsManagement";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FoodImage)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -270,16 +270,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox_FoodImage;
+        private System.Windows.Forms.Button button_AddFood;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Price;
+        private System.Windows.Forms.TextBox textBox_NameOfFood;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;

@@ -19,7 +19,6 @@ namespace CinemaManagement.Admin.ManagementPages
 {
     public partial class MoviesManagement : BaseMangementPage
     {
-        List<MovieModel> movieList = new List<MovieModel>();
         bool IsEditing = false;
         DataTable dtMovieList = new DataTable();
 
@@ -69,7 +68,7 @@ namespace CinemaManagement.Admin.ManagementPages
 
         void RefreshMovieList()
         {
-            movieList = MovieDataAccess.LoadMovies();
+            List<MovieModel> movieList = MovieDataAccess.LoadMovies();
             foreach (var movie in movieList)
             {
                 dtMovieList.Rows.Add(
@@ -81,9 +80,6 @@ namespace CinemaManagement.Admin.ManagementPages
                 movie.Image);
             }
         }
-
-        public List<MovieModel> MovieList { get => movieList; set => movieList = value; }
-
         private void button_add_image_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
