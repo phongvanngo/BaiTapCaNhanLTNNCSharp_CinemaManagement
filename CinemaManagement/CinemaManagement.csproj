@@ -124,6 +124,7 @@
     <Compile Include="Database\DataProvider\MovieDataAccess.cs" />
     <Compile Include="Database\PersonModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="MyUtilities\MyFunction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin\AdminForm.resx">

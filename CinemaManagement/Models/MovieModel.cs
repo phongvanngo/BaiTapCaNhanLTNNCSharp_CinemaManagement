@@ -15,15 +15,17 @@ namespace CinemaManagement.Models
         private string classify;
         private int time;
 
-        //public MovieModel(string movieID, string name, int time, string classify, int price, string image)
-        //{
-        //    MovieID = movieID;
-        //    Name = name;
-        //    Time = time;
-        //    Classify = classify;
-        //    Price = price;
-        //    Image = image;
-        //}
+        public void SetMovieModel(string movieID, string name, int time, string classify, int price, string image)
+        {
+            MovieID = movieID;
+            Name = name;
+            Time = time;
+            Classify = classify;
+            Price = price;
+            Image = image;
+        }
+
+
 
         public string MovieID { get => movieID; set => movieID = value; }
         public string Name { get => name; set => name = value; }

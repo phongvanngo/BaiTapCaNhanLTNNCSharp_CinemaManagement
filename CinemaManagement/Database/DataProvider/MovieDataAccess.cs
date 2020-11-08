@@ -22,6 +22,17 @@ namespace CinemaManagement.Database.DataProvider
                 return output.ToList();
             }
         }
+
+        public static void UpdateMovies(MovieModel movie)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("UPDATE movie " +
+                            "SET Name = @Name, Time = @Time, Classify = @Classify, Price = @Price, Image = @Image " +
+                            "WHERE MovieID = @MovieID",
+                            movie);
+            }
+        }
         private static string LoadConnectionString(string id = "Default")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
