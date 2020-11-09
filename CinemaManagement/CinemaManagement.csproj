@@ -121,6 +121,7 @@
     <Compile Include="CashierForm.Designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DataProvider\BaseDataProvider.cs" />
     <Compile Include="Database\DataProvider\DrinkDataAccess.cs" />
     <Compile Include="Database\DataProvider\FoodDataAccess.cs" />
     <Compile Include="Database\DataProvider\MovieDataAccess.cs" />
@@ -172,6 +173,7 @@
     <None Include="Database\CinemaManagerDatabase.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Database\CinemaManagerDatabase.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

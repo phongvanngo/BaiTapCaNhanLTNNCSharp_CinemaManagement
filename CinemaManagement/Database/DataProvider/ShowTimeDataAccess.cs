@@ -16,7 +16,7 @@ namespace CinemaManagement.Database.DataProvider
     {
         public static List<ShowTimeModel> LoadShowTimes()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<ShowTimeModel>("select * from ShowTime", new DynamicParameters());
                 return output.ToList();
@@ -24,10 +24,10 @@ namespace CinemaManagement.Database.DataProvider
         }
         public static void UpdateShowTime(ShowTimeModel showtime)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("UPDATE showtime " +
-                            "SET MovieID = @MovieID, RemainingSeats = @RemainingSeats, TheaterID = @TheaterID " +
+                            "SET MovieID = @MovieID, RemainingSeats = @RemainingSeats, TheaterID = @TheaterID, DateStart = @DateStart, TimeStart = @TimeStart " +
                             "WHERE ShowTimeID = @ShowTimeID",
                             showtime);
             }
@@ -35,20 +35,37 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void SaveShowTime(ShowTimeModel showtime)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
-                cnn.Execute("insert into ShowTime (ShowTimeID,TheaterID,MovieID,RemainingSeats) " +
-                    "values(@ShowTimeID,@TheaterID,@MovieID,@RemainingSeats)"
+                cnn.Execute("insert into ShowTime (ShowTimeID,TheaterID,MovieID,TimeStart,DateStart,RemainingSeats) " +
+                    "values(@ShowTimeID,@TheaterID,@MovieID,@TimeStart,@DateStart,@RemainingSeats)"
                     , showtime);
             }
         }
 
         public static void DeleteShowTime(string ShowTimeID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlcommand = "DELETE FROM ShowTime WHERE ShowTimeID = '" + ShowTimeID + "'";
                 cnn.Execute(sqlcommand);
+            }
+        }
+
+        public static bool CheckValidNewShowTime(ShowTimeModel showtime)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
+            {
+                string sqlcommand =
+                    "select * from ShowTime " +
+                    "WHERE " +
+                    $"MovieID = '{showtime.MovieID}' and " +
+                    $"TheaterID = '{showtime.TheaterID}' and " +
+                    $"DateStart = '{showtime.DateStart}' and " +
+                    $"TimeStart = '{showtime.TimeStart}'";
+                var output = cnn.Query<ShowTimeModel>(sqlcommand,new DynamicParameters());
+                if (output.ToList().Count == 0) return true; else return false;
+                
             }
         }
         private static string LoadConnectionString(string id = "Default")

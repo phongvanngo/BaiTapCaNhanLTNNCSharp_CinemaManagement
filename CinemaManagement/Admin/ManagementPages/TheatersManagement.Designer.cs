@@ -39,19 +39,19 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TheaterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip_TheaterListTable = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.chỉnhSửaPhimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaPhimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_UpdateTheater = new System.Windows.Forms.Button();
             this.numericUpDown_Seats = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.contextMenuStrip_TheaterListTable = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.chỉnhSửaPhimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaPhimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table_TheaterList)).BeginInit();
+            this.contextMenuStrip_TheaterListTable.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Seats)).BeginInit();
-            this.contextMenuStrip_TheaterListTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -155,6 +155,29 @@
             this.Seat.Name = "Seat";
             this.Seat.ReadOnly = true;
             // 
+            // contextMenuStrip_TheaterListTable
+            // 
+            this.contextMenuStrip_TheaterListTable.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip_TheaterListTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chỉnhSửaPhimToolStripMenuItem,
+            this.xóaPhimToolStripMenuItem});
+            this.contextMenuStrip_TheaterListTable.Name = "contextMenuStrip1";
+            this.contextMenuStrip_TheaterListTable.Size = new System.Drawing.Size(169, 52);
+            // 
+            // chỉnhSửaPhimToolStripMenuItem
+            // 
+            this.chỉnhSửaPhimToolStripMenuItem.Name = "chỉnhSửaPhimToolStripMenuItem";
+            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.chỉnhSửaPhimToolStripMenuItem.Text = "Chỉnh sửa rạp";
+            this.chỉnhSửaPhimToolStripMenuItem.Click += new System.EventHandler(this.editTheaterToolStripMenuItem_Click);
+            // 
+            // xóaPhimToolStripMenuItem
+            // 
+            this.xóaPhimToolStripMenuItem.Name = "xóaPhimToolStripMenuItem";
+            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.xóaPhimToolStripMenuItem.Text = "Xóa rạp";
+            this.xóaPhimToolStripMenuItem.Click += new System.EventHandler(this.deleteTheaterToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button_UpdateTheater);
@@ -190,6 +213,11 @@
             // numericUpDown_Seats
             // 
             this.numericUpDown_Seats.Location = new System.Drawing.Point(34, 159);
+            this.numericUpDown_Seats.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numericUpDown_Seats.Name = "numericUpDown_Seats";
             this.numericUpDown_Seats.Size = new System.Drawing.Size(120, 30);
             this.numericUpDown_Seats.TabIndex = 9;
@@ -222,29 +250,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Số ghế";
             // 
-            // contextMenuStrip_TheaterListTable
-            // 
-            this.contextMenuStrip_TheaterListTable.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip_TheaterListTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chỉnhSửaPhimToolStripMenuItem,
-            this.xóaPhimToolStripMenuItem});
-            this.contextMenuStrip_TheaterListTable.Name = "contextMenuStrip1";
-            this.contextMenuStrip_TheaterListTable.Size = new System.Drawing.Size(169, 52);
-            // 
-            // chỉnhSửaPhimToolStripMenuItem
-            // 
-            this.chỉnhSửaPhimToolStripMenuItem.Name = "chỉnhSửaPhimToolStripMenuItem";
-            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
-            this.chỉnhSửaPhimToolStripMenuItem.Text = "Chỉnh sửa rạp";
-            this.chỉnhSửaPhimToolStripMenuItem.Click += new System.EventHandler(this.editTheaterToolStripMenuItem_Click);
-            // 
-            // xóaPhimToolStripMenuItem
-            // 
-            this.xóaPhimToolStripMenuItem.Name = "xóaPhimToolStripMenuItem";
-            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
-            this.xóaPhimToolStripMenuItem.Text = "Xóa rạp";
-            this.xóaPhimToolStripMenuItem.Click += new System.EventHandler(this.deleteTheaterToolStripMenuItem_Click);
-            // 
             // TheatersManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -255,10 +260,10 @@
             this.Name = "TheatersManagement";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Table_TheaterList)).EndInit();
+            this.contextMenuStrip_TheaterListTable.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Seats)).EndInit();
-            this.contextMenuStrip_TheaterListTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

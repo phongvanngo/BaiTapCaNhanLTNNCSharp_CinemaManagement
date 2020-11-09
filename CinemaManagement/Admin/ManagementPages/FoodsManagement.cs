@@ -192,8 +192,13 @@ namespace CinemaManagement.Admin.ManagementPages
         {
             if (IndexRowSelected != -1)
             {
-                FoodDataAccess.DeleteFood((string)dtFoodList.Rows[IndexRowSelected]["FoodID"]);
-                dtFoodList.Rows[IndexRowSelected].Delete();
+                try
+                {
+                    FoodDataAccess.DeleteFood((string)dtFoodList.Rows[IndexRowSelected]["FoodID"]);
+                    dtFoodList.Rows[IndexRowSelected].Delete();
+
+                }
+                catch { }
             }
         }
     }

@@ -91,9 +91,9 @@ namespace CinemaManagement.Admin.ManagementPages
                 pictureBox_MovieImage.ImageLocation = openFileDialog.FileName;
             }
         }
-        
+
         private void Table_MovieList_MouseDown(object sender, MouseEventArgs e)
-        { 
+        {
             // user right click to datagridview
             if (e.Button == MouseButtons.Right)
             {
@@ -221,10 +221,13 @@ namespace CinemaManagement.Admin.ManagementPages
         {
             if (IndexRowSelected != -1)
             {
-                MovieDataAccess.DeleteMovie((string)dtMovieList.Rows[IndexRowSelected]["MovieID"]);
-                dtMovieList.Rows[IndexRowSelected].Delete();
+                try
+                {
+                    MovieDataAccess.DeleteMovie((string)dtMovieList.Rows[IndexRowSelected]["MovieID"]);
+                    dtMovieList.Rows[IndexRowSelected].Delete();
+                }
+                catch { };
 
-                DataUpdateEvent();
             }
         }
     }

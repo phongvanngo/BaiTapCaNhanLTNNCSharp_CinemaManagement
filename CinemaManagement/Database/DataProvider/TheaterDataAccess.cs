@@ -17,7 +17,7 @@ namespace CinemaManagement.Database.DataProvider
     {
         public static List<TheaterModel> LoadTheaters()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<TheaterModel>("select * from Theater", new DynamicParameters());
                 return output.ToList();
@@ -25,7 +25,7 @@ namespace CinemaManagement.Database.DataProvider
         }        
         public static List<TheaterModel> CustomeQuery(string sqlCommand)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<TheaterModel>(sqlCommand, new DynamicParameters());
                 return output.ToList();
@@ -33,18 +33,18 @@ namespace CinemaManagement.Database.DataProvider
         }
         public static string GetTheaterName(string TheaterID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlCommand = "select Name from Theater " +
                                     "where TheaterID ='" + TheaterID + "'";
                 var output = cnn.Query<TheaterModel>(sqlCommand, new DynamicParameters());
                 List<TheaterModel> theater = output.ToList();
-                return theater.ElementAt(0).Name;
+                if (theater.Count > 0) return theater.ElementAt(0).Name; else return "Rạp không tồn tại";
             }
         }        
         public static int GetTheaterSeats(string TheaterID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlCommand = "select Seats from Theater " +
                                     "where TheaterID ='" + TheaterID + "'";
@@ -57,7 +57,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void UpdateTheater(TheaterModel theater)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("UPDATE theater " +
                             "SET Name = @Name, Seats = @Seats " +
@@ -68,7 +68,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void SaveTheater(TheaterModel theater)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("insert into Theater (TheaterID,Name,Seats) " +
                     "values(@TheaterID,@Name,@Seats)"
@@ -78,7 +78,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void DeleteTheater(string TheaterID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlcommnad = "DELETE FROM Theater WHERE TheaterID = '" + TheaterID + "'";
                 cnn.Execute(sqlcommnad);

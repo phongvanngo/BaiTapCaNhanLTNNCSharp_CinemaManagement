@@ -15,7 +15,7 @@ namespace CinemaManagement.Database.DataProvider
     {
         public static List<FoodModel> LoadFoods()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<FoodModel>("select * from Food", new DynamicParameters());
                 return output.ToList();
@@ -24,7 +24,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void UpdateFood(FoodModel theater)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("UPDATE Food " +
                             "SET Name = @Name, Price = @Price,Image = @Image " +
@@ -35,7 +35,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void SaveFood(FoodModel Food)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("insert into Food (FoodID,Name,Price,Image) " +
                     "values(@FoodID,@Name,@Price,@Image)"
@@ -45,7 +45,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void DeleteFood(string FoodID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlcommand = "DELETE FROM Food WHERE FoodID = '" + FoodID + "'";
                 cnn.Execute(sqlcommand);

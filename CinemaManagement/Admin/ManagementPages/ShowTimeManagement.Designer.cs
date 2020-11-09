@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_Update = new System.Windows.Forms.Button();
+            this.button_UpdateShortTime = new System.Windows.Forms.Button();
             this.dateTimePicker_TimeStart = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_NameOfTheater = new System.Windows.Forms.ComboBox();
             this.comboBox_NameOfMovie = new System.Windows.Forms.ComboBox();
-            this.button_AddNewShowTime = new System.Windows.Forms.Button();
+            this.button_AddShowTime = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,14 +49,18 @@
             this.TheaterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip_ShowTimeListTable = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.chỉnhSửaPhimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaPhimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table_ShowTimeList)).BeginInit();
+            this.contextMenuStrip_ShowTimeListTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_Update);
+            this.groupBox1.Controls.Add(this.button_UpdateShortTime);
             this.groupBox1.Controls.Add(this.dateTimePicker_TimeStart);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -63,7 +68,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBox_NameOfTheater);
             this.groupBox1.Controls.Add(this.comboBox_NameOfMovie);
-            this.groupBox1.Controls.Add(this.button_AddNewShowTime);
+            this.groupBox1.Controls.Add(this.button_AddShowTime);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -75,18 +80,19 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // button_Update
+            // button_UpdateShortTime
             // 
-            this.button_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Update.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button_Update.Location = new System.Drawing.Point(911, 328);
-            this.button_Update.Margin = new System.Windows.Forms.Padding(4);
-            this.button_Update.Name = "button_Update";
-            this.button_Update.Size = new System.Drawing.Size(161, 35);
-            this.button_Update.TabIndex = 14;
-            this.button_Update.Text = "Cập nhật";
-            this.button_Update.UseVisualStyleBackColor = true;
+            this.button_UpdateShortTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_UpdateShortTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_UpdateShortTime.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button_UpdateShortTime.Location = new System.Drawing.Point(911, 328);
+            this.button_UpdateShortTime.Margin = new System.Windows.Forms.Padding(4);
+            this.button_UpdateShortTime.Name = "button_UpdateShortTime";
+            this.button_UpdateShortTime.Size = new System.Drawing.Size(161, 35);
+            this.button_UpdateShortTime.TabIndex = 14;
+            this.button_UpdateShortTime.Text = "Cập nhật";
+            this.button_UpdateShortTime.UseVisualStyleBackColor = true;
+            this.button_UpdateShortTime.Click += new System.EventHandler(this.button_UpdateShowTime_Click);
             // 
             // dateTimePicker_TimeStart
             // 
@@ -165,18 +171,19 @@
             this.comboBox_NameOfMovie.Size = new System.Drawing.Size(597, 33);
             this.comboBox_NameOfMovie.TabIndex = 6;
             // 
-            // button_AddNewShowTime
+            // button_AddShowTime
             // 
-            this.button_AddNewShowTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_AddNewShowTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_AddNewShowTime.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button_AddNewShowTime.Location = new System.Drawing.Point(742, 328);
-            this.button_AddNewShowTime.Margin = new System.Windows.Forms.Padding(4);
-            this.button_AddNewShowTime.Name = "button_AddNewShowTime";
-            this.button_AddNewShowTime.Size = new System.Drawing.Size(161, 35);
-            this.button_AddNewShowTime.TabIndex = 5;
-            this.button_AddNewShowTime.Text = "Thêm mới";
-            this.button_AddNewShowTime.UseVisualStyleBackColor = true;
+            this.button_AddShowTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_AddShowTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_AddShowTime.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button_AddShowTime.Location = new System.Drawing.Point(742, 328);
+            this.button_AddShowTime.Margin = new System.Windows.Forms.Padding(4);
+            this.button_AddShowTime.Name = "button_AddShowTime";
+            this.button_AddShowTime.Size = new System.Drawing.Size(161, 35);
+            this.button_AddShowTime.TabIndex = 5;
+            this.button_AddShowTime.Text = "Thêm mới";
+            this.button_AddShowTime.UseVisualStyleBackColor = true;
+            this.button_AddShowTime.Click += new System.EventHandler(this.button_AddShowTime_Click);
             // 
             // label2
             // 
@@ -224,6 +231,7 @@
             this.TheaterName,
             this.Time,
             this.Seat});
+            this.Table_ShowTimeList.ContextMenuStrip = this.contextMenuStrip_ShowTimeListTable;
             this.Table_ShowTimeList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Table_ShowTimeList.Location = new System.Drawing.Point(4, 27);
             this.Table_ShowTimeList.Margin = new System.Windows.Forms.Padding(4);
@@ -235,6 +243,7 @@
             this.Table_ShowTimeList.RowTemplate.Height = 24;
             this.Table_ShowTimeList.Size = new System.Drawing.Size(1072, 322);
             this.Table_ShowTimeList.TabIndex = 0;
+            this.Table_ShowTimeList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Table_ShowTimeList_MouseDown);
             // 
             // Id
             // 
@@ -276,6 +285,29 @@
             this.Seat.Name = "Seat";
             this.Seat.ReadOnly = true;
             // 
+            // contextMenuStrip_ShowTimeListTable
+            // 
+            this.contextMenuStrip_ShowTimeListTable.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip_ShowTimeListTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chỉnhSửaPhimToolStripMenuItem,
+            this.xóaPhimToolStripMenuItem});
+            this.contextMenuStrip_ShowTimeListTable.Name = "contextMenuStrip1";
+            this.contextMenuStrip_ShowTimeListTable.Size = new System.Drawing.Size(213, 80);
+            // 
+            // chỉnhSửaPhimToolStripMenuItem
+            // 
+            this.chỉnhSửaPhimToolStripMenuItem.Name = "chỉnhSửaPhimToolStripMenuItem";
+            this.chỉnhSửaPhimToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.chỉnhSửaPhimToolStripMenuItem.Text = "Chỉnh sửa suất chiếu";
+            this.chỉnhSửaPhimToolStripMenuItem.Click += new System.EventHandler(this.editShowTimeToolStripMenuItem_Click);
+            // 
+            // xóaPhimToolStripMenuItem
+            // 
+            this.xóaPhimToolStripMenuItem.Name = "xóaPhimToolStripMenuItem";
+            this.xóaPhimToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.xóaPhimToolStripMenuItem.Text = "Xóa suất chiếu";
+            this.xóaPhimToolStripMenuItem.Click += new System.EventHandler(this.deleteShowTimeToolStripMenuItem_Click);
+            // 
             // ShowTimeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -288,6 +320,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Table_ShowTimeList)).EndInit();
+            this.contextMenuStrip_ShowTimeListTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -295,7 +328,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button_AddNewShowTime;
+        private System.Windows.Forms.Button button_AddShowTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -312,6 +345,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Seat;
         private System.Windows.Forms.DateTimePicker dateTimePicker_TimeStart;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button_Update;
+        private System.Windows.Forms.Button button_UpdateShortTime;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip_ShowTimeListTable;
+        private System.Windows.Forms.ToolStripMenuItem chỉnhSửaPhimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xóaPhimToolStripMenuItem;
     }
 }

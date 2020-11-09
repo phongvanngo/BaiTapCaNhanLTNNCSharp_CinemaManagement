@@ -168,15 +168,19 @@ namespace CinemaManagement.Admin.ManagementPages
                 textBox_NameOfTheater.Text = dtTheaterList.Rows[IndexRowSelected]["Name"].ToString();
                 numericUpDown_Seats.Value = Convert.ToInt32(dtTheaterList.Rows[IndexRowSelected]["Seats"]);
             }
-        }        
+        }
         private void deleteTheaterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (IndexRowSelected != -1)
             {
-                TheaterDataAccess.DeleteTheater((string)dtTheaterList.Rows[IndexRowSelected]["TheaterID"]);
-                dtTheaterList.Rows[IndexRowSelected].Delete();
+                try
+                {
+                    TheaterDataAccess.DeleteTheater((string)dtTheaterList.Rows[IndexRowSelected]["TheaterID"]);
+                    dtTheaterList.Rows[IndexRowSelected].Delete();
+                    DataUpdateEvent();
+                }
+                catch { }
 
-                DataUpdateEvent();
             }
         }
     }

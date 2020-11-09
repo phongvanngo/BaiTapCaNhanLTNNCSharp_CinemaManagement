@@ -15,7 +15,7 @@ namespace CinemaManagement.Database.DataProvider
     {
         public static List<DrinkModel> LoadDrinks()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<DrinkModel>("select * from Drink", new DynamicParameters());
                 return output.ToList();
@@ -24,7 +24,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void UpdateDrink(DrinkModel drink)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("UPDATE Drink " +
                             "SET Name = @Name, Price = @Price,Image = @Image " +
@@ -35,7 +35,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void SaveDrink(DrinkModel Drink)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("insert into Drink (DrinkID,Name,Price,Image) " +
                     "values(@DrinkID,@Name,@Price,@Image)"
@@ -45,7 +45,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void DeleteDrink(string DrinkID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlcommand = "DELETE FROM Drink WHERE DrinkID = '" + DrinkID + "'";
                 cnn.Execute(sqlcommand);

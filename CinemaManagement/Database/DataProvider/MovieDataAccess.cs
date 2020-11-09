@@ -20,7 +20,7 @@ namespace CinemaManagement.Database.DataProvider
         }
         public static List<MovieModel> LoadMovies()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<MovieModel>("select * from Movie", new DynamicParameters());
                 //MessageBox.Show((ou as MovieModel).FirstName);
@@ -30,7 +30,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static List<MovieModel> CustomeQuery(string sqlCommand)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 var output = cnn.Query<MovieModel>(sqlCommand, new DynamicParameters());
                 return output.ToList();
@@ -39,19 +39,19 @@ namespace CinemaManagement.Database.DataProvider
 
         public static string GetMovieName(string MovieID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 string sqlCommand = "select Name from Movie " +
                                     "where MovieID ='" + MovieID + "'";
                 var output = cnn.Query<strGetName>(sqlCommand, new DynamicParameters());
                 List<strGetName> movie = output.ToList();
-                return movie.ElementAt(0).Name;
+                if (movie.Count > 0) return movie.ElementAt(0).Name; return "Phim không còn tồn tại";
             }
         }
 
         public static void UpdateMovie(MovieModel movie)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("UPDATE movie " +
                             "SET Name = @Name, Time = @Time, Classify = @Classify, Price = @Price, Image = @Image " +
@@ -62,7 +62,7 @@ namespace CinemaManagement.Database.DataProvider
 
         public static void SaveMovie(MovieModel movie)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 cnn.Execute("insert into Movie (MovieID,Name,Price,Image,Time,Classify) " +
                     "values(@MovieID,@Name,@Price,@Image,@Time,@Classify)"
@@ -72,7 +72,7 @@ namespace CinemaManagement.Database.DataProvider
         
         public static void DeleteMovie(string MovieID)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
             {
                 //MessageBox.Show(string.Format(@"DELETE FROM Movie WHERE MovieID = {0}", MovieID));
                 string sqlcommnad = "DELETE FROM Movie WHERE MovieID = '" + MovieID + "'";

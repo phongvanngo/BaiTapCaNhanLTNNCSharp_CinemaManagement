@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CinemaManagement.Models;
 using CinemaManagement.Database.DataProvider;
+using CinemaManagement.MyUtilities;
 
 namespace CinemaManagement.Admin.ManagementPages
 {
@@ -22,7 +23,7 @@ namespace CinemaManagement.Admin.ManagementPages
         List<MovieModel> movieList = new List<MovieModel>();
         List<TheaterModel> theaterList = new List<TheaterModel>();
 
-        public bool IsDataUpdate {set { RefreshMovieAndTheaterNameCombobox(); } }
+        public bool IsDataUpdate {set { RefreshMovieAndTheaterNameCombobox();RefreshShowTimeList(); } }
 
         public ShowTimeManagement()
         {
@@ -110,5 +111,140 @@ namespace CinemaManagement.Admin.ManagementPages
                 showTime.RemainingSeats);
             }
         }
+
+        //----
+        private void Table_ShowTimeList_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var hti = Table_ShowTimeList.HitTest(e.X, e.Y);
+                Table_ShowTimeList.ClearSelection();
+                try
+                {
+                    Table_ShowTimeList.Rows[hti.RowIndex].Selected = true;
+                    IndexRowSelected = hti.RowIndex;
+                }
+                // user right click outside rows
+                catch
+                {
+                    IndexRowSelected = -1;
+                };
+            }
+        }
+
+        private void ClearInput()
+        {
+            //textBox_NameOfShowTime.Text = "";
+            //numericUpDown_Seats.Value = 50;
+        }
+
+        private bool CheckInputValid()
+        {
+            //if (textBox_NameOfShowTime.Text == "" || textBox_NameOfShowTime == null) return false;
+            return true;
+        }
+
+        private void button_AddShowTime_Click(object sender, EventArgs e)
+        {
+            if (IsEditing == true)
+            {
+                DialogResult dialogResult = MessageBox.Show("Bản chỉnh sửa chưa được cập nhật, Bạn vẫn muốn tiếp tục chứ ?", "thêm phim mới", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                if (dialogResult == DialogResult.Yes)
+                {
+                    IsEditing = false;
+                    ClearInput();
+                    return;
+                }
+            }
+
+            //kiểm tra input 
+            if (CheckInputValid() == false) { MessageBox.Show("Dữ liệu không hợp lệ"); return; }
+
+
+            //trường hợp không chỉnh sửa phim
+            ShowTimeModel showTime = new ShowTimeModel();
+
+            showTime.ShowTimeID = "ST" + MyFunction.GenerateCode();
+
+            MovieModel SelectedMovie = comboBox_NameOfMovie.SelectedItem as MovieModel;
+            TheaterModel SelectedTheater = comboBox_NameOfTheater.SelectedItem as TheaterModel;
+
+            showTime.MovieID = SelectedMovie.MovieID;
+            showTime.MovieName = SelectedMovie.Name;            
+            showTime.TheaterID = SelectedTheater.TheaterID;
+            showTime.TheaterName = SelectedTheater.Name;
+            showTime.DateStart = dateTimePicker_Date.Value.ToString("dd-MM-yy");
+            showTime.TimeStart = dateTimePicker_TimeStart.Value.ToString("HH:mm");
+            showTime.RemainingSeats = TheaterDataAccess.GetTheaterSeats(showTime.TheaterID);
+
+            //truong hop suat chieu bị trùng 
+            if (ShowTimeDataAccess.CheckValidNewShowTime(showTime) == false)
+            {
+                MessageBox.Show("Suất chiếu bị trùng");
+                return;
+            }
+
+                dtShowTimeList.Rows.Add(
+            showTime.ShowTimeID,
+            showTime.MovieName,
+            showTime.TheaterName,
+            showTime.DateStart,
+            showTime.TimeStart,
+            showTime.RemainingSeats);
+
+            ShowTimeDataAccess.SaveShowTime(showTime);
+
+            ClearInput();
+
+        }
+
+        private void button_UpdateShowTime_Click(object sender, EventArgs e)
+        {
+            if (IsEditing)
+            {
+                ShowTimeModel showTime = new ShowTimeModel();
+
+                showTime.ShowTimeID = dtShowTimeList.Rows[IndexRowSelected]["ShowTimeID"].ToString();
+                showTime.MovieID = (comboBox_NameOfMovie.SelectedItem as MovieModel).MovieID;
+                showTime.TheaterID = (comboBox_NameOfTheater.SelectedItem as TheaterModel).TheaterID;
+                showTime.DateStart = dateTimePicker_Date.Text;
+                showTime.TimeStart = dateTimePicker_TimeStart.Text;
+
+                dtShowTimeList.Rows[IndexRowSelected]["MovieName"] = comboBox_NameOfMovie.Text;
+                dtShowTimeList.Rows[IndexRowSelected]["TheaterName"] = comboBox_NameOfTheater.Text;
+                dtShowTimeList.Rows[IndexRowSelected]["DateStart"] = showTime.DateStart;
+                dtShowTimeList.Rows[IndexRowSelected]["TimeStart"] = showTime.TimeStart;
+
+                ShowTimeDataAccess.UpdateShowTime(showTime);
+
+                IsEditing = false;
+                ClearInput();
+            }
+        }
+        private void editShowTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IndexRowSelected != -1)
+            {
+                IsEditing = true;
+                comboBox_NameOfMovie.Text = dtShowTimeList.Rows[IndexRowSelected]["MovieName"].ToString();
+                comboBox_NameOfTheater.Text = dtShowTimeList.Rows[IndexRowSelected]["TheaterName"].ToString();
+                dateTimePicker_Date.Text = dtShowTimeList.Rows[IndexRowSelected]["DateStart"].ToString();
+                dateTimePicker_TimeStart.Text = dtShowTimeList.Rows[IndexRowSelected]["TimeStart"].ToString();
+            }
+        }
+        private void deleteShowTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IndexRowSelected != -1)
+            {
+                ShowTimeDataAccess.DeleteShowTime((string)dtShowTimeList.Rows[IndexRowSelected]["ShowTimeID"]);
+                dtShowTimeList.Rows[IndexRowSelected].Delete();
+            }
+        }
+
+        //----
     }
 }
