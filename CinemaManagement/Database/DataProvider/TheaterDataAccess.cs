@@ -6,6 +6,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +22,38 @@ namespace CinemaManagement.Database.DataProvider
                 var output = cnn.Query<TheaterModel>("select * from Theater", new DynamicParameters());
                 return output.ToList();
             }
+        }        
+        public static List<TheaterModel> CustomeQuery(string sqlCommand)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<TheaterModel>(sqlCommand, new DynamicParameters());
+                return output.ToList();
+            }
         }
+        public static string GetTheaterName(string TheaterID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string sqlCommand = "select Name from Theater " +
+                                    "where TheaterID ='" + TheaterID + "'";
+                var output = cnn.Query<TheaterModel>(sqlCommand, new DynamicParameters());
+                List<TheaterModel> theater = output.ToList();
+                return theater.ElementAt(0).Name;
+            }
+        }        
+        public static int GetTheaterSeats(string TheaterID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string sqlCommand = "select Seats from Theater " +
+                                    "where TheaterID ='" + TheaterID + "'";
+                var output = cnn.Query<TheaterModel>(sqlCommand, new DynamicParameters());
+                List<TheaterModel> theater = output.ToList();
+                return theater.ElementAt(0).Seats;
+            }
+        }
+
 
         public static void UpdateTheater(TheaterModel theater)
         {

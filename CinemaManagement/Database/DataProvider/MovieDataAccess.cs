@@ -14,6 +14,10 @@ namespace CinemaManagement.Database.DataProvider
 {
     class MovieDataAccess
     {
+        struct strGetName
+        {
+            public string Name;
+        }
         public static List<MovieModel> LoadMovies()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -21,6 +25,27 @@ namespace CinemaManagement.Database.DataProvider
                 var output = cnn.Query<MovieModel>("select * from Movie", new DynamicParameters());
                 //MessageBox.Show((ou as MovieModel).FirstName);
                 return output.ToList();
+            }
+        }
+
+        public static List<MovieModel> CustomeQuery(string sqlCommand)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<MovieModel>(sqlCommand, new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static string GetMovieName(string MovieID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string sqlCommand = "select Name from Movie " +
+                                    "where MovieID ='" + MovieID + "'";
+                var output = cnn.Query<strGetName>(sqlCommand, new DynamicParameters());
+                List<strGetName> movie = output.ToList();
+                return movie.ElementAt(0).Name;
             }
         }
 

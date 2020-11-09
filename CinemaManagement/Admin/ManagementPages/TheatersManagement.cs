@@ -19,6 +19,7 @@ namespace CinemaManagement.Admin.ManagementPages
         DataTable dtTheaterList = new DataTable();
         int IndexRowSelected = -1;
 
+        public event DataChangeDelegate DataUpdateEvent;
         public TheatersManagement()
         {
             InitializeComponent();
@@ -133,6 +134,8 @@ namespace CinemaManagement.Admin.ManagementPages
             TheaterDataAccess.SaveTheater(theater);
 
             ClearInput();
+
+            DataUpdateEvent();
         }
 
         private void button_UpdateTheater_Click(object sender, EventArgs e)
@@ -153,6 +156,8 @@ namespace CinemaManagement.Admin.ManagementPages
                 IsEditing = false;
                 ClearInput();
 
+                DataUpdateEvent();
+
             }
         }
         private void editTheaterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,6 +175,8 @@ namespace CinemaManagement.Admin.ManagementPages
             {
                 TheaterDataAccess.DeleteTheater((string)dtTheaterList.Rows[IndexRowSelected]["TheaterID"]);
                 dtTheaterList.Rows[IndexRowSelected].Delete();
+
+                DataUpdateEvent();
             }
         }
     }

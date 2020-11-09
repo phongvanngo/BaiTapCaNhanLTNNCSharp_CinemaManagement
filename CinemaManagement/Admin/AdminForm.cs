@@ -32,7 +32,16 @@ namespace CinemaManagement.Admin
             ShowTimeManagementTabPage.Controls.Add(ShowTimePage);
             FoodsManagementTabPage.Controls.Add(FoodPage);
             DrinksManagementTabPage.Controls.Add(DrinkPage);
+
+            MoviePage.DataUpdateEvent += Event_DataUpdateEvent;
+            TheaterPage.DataUpdateEvent += Event_DataUpdateEvent;
             
+            
+        }
+
+        private void Event_DataUpdateEvent()
+        {
+            ShowTimePage.IsDataUpdate = true;
         }
     }
 }

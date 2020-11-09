@@ -22,6 +22,8 @@ namespace CinemaManagement.Admin.ManagementPages
         bool IsEditing = false;
         DataTable dtMovieList = new DataTable();
 
+        public event DataChangeDelegate DataUpdateEvent;
+
         int IndexRowSelected = -1;
         public MoviesManagement()
         {
@@ -112,7 +114,6 @@ namespace CinemaManagement.Admin.ManagementPages
 
         private void EditMovieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             if (IndexRowSelected != -1)
             {
                 IsEditing = true;
@@ -159,6 +160,8 @@ namespace CinemaManagement.Admin.ManagementPages
 
                 IsEditing = false;
                 ClearInput();
+
+                DataUpdateEvent();
 
             }
         }
@@ -211,6 +214,8 @@ namespace CinemaManagement.Admin.ManagementPages
             MovieDataAccess.SaveMovie(movie);
 
             ClearInput();
+
+            DataUpdateEvent();
         }
         private void DeleteMovieToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -218,6 +223,8 @@ namespace CinemaManagement.Admin.ManagementPages
             {
                 MovieDataAccess.DeleteMovie((string)dtMovieList.Rows[IndexRowSelected]["MovieID"]);
                 dtMovieList.Rows[IndexRowSelected].Delete();
+
+                DataUpdateEvent();
             }
         }
     }
