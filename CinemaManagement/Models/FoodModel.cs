@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaManagement.Models
 {
-    class FoodModel
+    public class FoodModel
     {
         public string Name { get; set; }
         public string FoodID { get; set; }

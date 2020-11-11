@@ -21,6 +21,9 @@ namespace CinemaManagement.Admin
         public AdminForm()
         {
             InitializeComponent();
+
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+
             DrinkPage.Dock = DockStyle.Fill;
             FoodPage.Dock = DockStyle.Fill;
             MoviePage.Dock = DockStyle.Fill;

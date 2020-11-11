@@ -16,8 +16,8 @@ namespace CinemaManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new CashierForm());
-            Application.Run(new CinemaManagement.Admin.AdminForm());
+            Application.Run(new CashierForm());
+            //Application.Run(new CinemaManagement.Admin.AdminForm());
         }
     }
 }

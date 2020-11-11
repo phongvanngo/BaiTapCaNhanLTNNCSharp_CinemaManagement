@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,16 @@ namespace CinemaManagement.Database.DataProvider
                 var output = cnn.Query<MovieModel>("select * from Movie", new DynamicParameters());
                 //MessageBox.Show((ou as MovieModel).FirstName);
                 return output.ToList();
+            }
+        }        
+        public static MovieModel GetMovie(string MovieID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
+            {
+                string sqlcommand = $"select * from Movie where MovieID ='{MovieID}'";
+                var output = cnn.Query<MovieModel>(sqlcommand, new DynamicParameters());
+                //MessageBox.Show((ou as MovieModel).FirstName);
+                return output.ToList().ElementAt(0);
             }
         }
 

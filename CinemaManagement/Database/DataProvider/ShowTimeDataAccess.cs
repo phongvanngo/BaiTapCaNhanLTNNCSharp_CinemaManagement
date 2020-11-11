@@ -21,6 +21,16 @@ namespace CinemaManagement.Database.DataProvider
                 var output = cnn.Query<ShowTimeModel>("select * from ShowTime", new DynamicParameters());
                 return output.ToList();
             }
+        }        
+        
+        public static List<ShowTimeModel> LoadShowTimesDepentMovieID(string MovieID)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(BaseDataProvider.LoadConnectionString()))
+            {
+                string sqlcommand = $"select * from ShowTime where MovieID ='{MovieID}'";
+                var output = cnn.Query<ShowTimeModel>(sqlcommand, new DynamicParameters());
+                return output.ToList();
+            }
         }
         public static void UpdateShowTime(ShowTimeModel showtime)
         {

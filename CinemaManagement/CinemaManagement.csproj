@@ -121,6 +121,78 @@
     <Compile Include="CashierForm.Designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashierPages\BookingDrink\BookingDrinkContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingDrink\BookingDrinkContainer.Designer.cs">
+      <DependentUpon>BookingDrinkContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingDrink\DrinkItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingDrink\DrinkItem.Designer.cs">
+      <DependentUpon>DrinkItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingFood\BookingFoodContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingFood\BookingFoodContainer.Designer.cs">
+      <DependentUpon>BookingFoodContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingFood\FoodItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingFood\FoodItem.Designer.cs">
+      <DependentUpon>FoodItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\BookingMovieContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\BookingMovieContainer.Designer.cs">
+      <DependentUpon>BookingMovieContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\ButtonShowTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\ButtonShowTime.Designer.cs">
+      <DependentUpon>ButtonShowTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\MoviePosterComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\MoviePosterComponent.Designer.cs">
+      <DependentUpon>MoviePosterComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\ShowTimeContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\ShowTimeContainer.Designer.cs">
+      <DependentUpon>ShowTimeContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\SingleMovieShowTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\BookingMovie\SingleMovieShowTime.Designer.cs">
+      <DependentUpon>SingleMovieShowTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\Invoice\InvoiceContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\Invoice\InvoiceContainer.Designer.cs">
+      <DependentUpon>InvoiceContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\Invoice\InvoiceDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierPages\Invoice\InvoiceDetailForm.Designer.cs">
+      <DependentUpon>InvoiceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPages\Invoice\InvoiceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierPages\Invoice\InvoiceView.designer.cs">
+      <DependentUpon>InvoiceView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\DataProvider\BaseDataProvider.cs" />
     <Compile Include="Database\DataProvider\DrinkDataAccess.cs" />
     <Compile Include="Database\DataProvider\FoodDataAccess.cs" />
@@ -131,6 +203,7 @@
     <Compile Include="Models\DelegateDefine.cs" />
     <Compile Include="Models\DrinkModel.cs" />
     <Compile Include="Models\FoodModel.cs" />
+    <Compile Include="Models\ItemDetail.cs" />
     <Compile Include="Models\MovieModel.cs" />
     <Compile Include="Models\ShowTimeModel.cs" />
     <Compile Include="Models\TheaterModel.cs" />
@@ -160,6 +233,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingDrink\BookingDrinkContainer.resx">
+      <DependentUpon>BookingDrinkContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingDrink\DrinkItem.resx">
+      <DependentUpon>DrinkItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingFood\BookingFoodContainer.resx">
+      <DependentUpon>BookingFoodContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingFood\FoodItem.resx">
+      <DependentUpon>FoodItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingMovie\BookingMovieContainer.resx">
+      <DependentUpon>BookingMovieContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingMovie\ButtonShowTime.resx">
+      <DependentUpon>ButtonShowTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingMovie\MoviePosterComponent.resx">
+      <DependentUpon>MoviePosterComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingMovie\ShowTimeContainer.resx">
+      <DependentUpon>ShowTimeContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\BookingMovie\SingleMovieShowTime.resx">
+      <DependentUpon>SingleMovieShowTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\Invoice\InvoiceContainer.resx">
+      <DependentUpon>InvoiceContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\Invoice\InvoiceDetailForm.resx">
+      <DependentUpon>InvoiceDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPages\Invoice\InvoiceView.resx">
+      <DependentUpon>InvoiceView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

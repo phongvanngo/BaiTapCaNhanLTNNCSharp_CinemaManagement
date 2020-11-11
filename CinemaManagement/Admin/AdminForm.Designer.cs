@@ -67,50 +67,50 @@
             // 
             // TheaterManagementTabPage
             // 
-            this.TheaterManagementTabPage.Location = new System.Drawing.Point(4, 25);
+            this.TheaterManagementTabPage.Location = new System.Drawing.Point(4, 29);
             this.TheaterManagementTabPage.Name = "TheaterManagementTabPage";
             this.TheaterManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.TheaterManagementTabPage.Size = new System.Drawing.Size(1054, 648);
+            this.TheaterManagementTabPage.Size = new System.Drawing.Size(1054, 644);
             this.TheaterManagementTabPage.TabIndex = 2;
             this.TheaterManagementTabPage.Text = "Rạp chiếu";
             this.TheaterManagementTabPage.UseVisualStyleBackColor = true;
             // 
             // ShowTimeManagementTabPage
             // 
-            this.ShowTimeManagementTabPage.Location = new System.Drawing.Point(4, 25);
+            this.ShowTimeManagementTabPage.Location = new System.Drawing.Point(4, 29);
             this.ShowTimeManagementTabPage.Name = "ShowTimeManagementTabPage";
             this.ShowTimeManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ShowTimeManagementTabPage.Size = new System.Drawing.Size(1054, 648);
+            this.ShowTimeManagementTabPage.Size = new System.Drawing.Size(1054, 644);
             this.ShowTimeManagementTabPage.TabIndex = 3;
             this.ShowTimeManagementTabPage.Text = "Suất chiếu";
             this.ShowTimeManagementTabPage.UseVisualStyleBackColor = true;
             // 
             // DrinksManagementTabPage
             // 
-            this.DrinksManagementTabPage.Location = new System.Drawing.Point(4, 25);
+            this.DrinksManagementTabPage.Location = new System.Drawing.Point(4, 29);
             this.DrinksManagementTabPage.Name = "DrinksManagementTabPage";
             this.DrinksManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DrinksManagementTabPage.Size = new System.Drawing.Size(1054, 648);
+            this.DrinksManagementTabPage.Size = new System.Drawing.Size(1054, 644);
             this.DrinksManagementTabPage.TabIndex = 4;
             this.DrinksManagementTabPage.Text = "Đồ uống";
             this.DrinksManagementTabPage.UseVisualStyleBackColor = true;
             // 
             // FoodsManagementTabPage
             // 
-            this.FoodsManagementTabPage.Location = new System.Drawing.Point(4, 25);
+            this.FoodsManagementTabPage.Location = new System.Drawing.Point(4, 29);
             this.FoodsManagementTabPage.Name = "FoodsManagementTabPage";
             this.FoodsManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.FoodsManagementTabPage.Size = new System.Drawing.Size(1054, 648);
+            this.FoodsManagementTabPage.Size = new System.Drawing.Size(1054, 644);
             this.FoodsManagementTabPage.TabIndex = 5;
             this.FoodsManagementTabPage.Text = "Món ăn";
             this.FoodsManagementTabPage.UseVisualStyleBackColor = true;
             // 
             // OthersManagementTabPage
             // 
-            this.OthersManagementTabPage.Location = new System.Drawing.Point(4, 25);
+            this.OthersManagementTabPage.Location = new System.Drawing.Point(4, 29);
             this.OthersManagementTabPage.Name = "OthersManagementTabPage";
             this.OthersManagementTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.OthersManagementTabPage.Size = new System.Drawing.Size(1054, 648);
+            this.OthersManagementTabPage.Size = new System.Drawing.Size(1054, 644);
             this.OthersManagementTabPage.TabIndex = 6;
             this.OthersManagementTabPage.Text = "Khác";
             this.OthersManagementTabPage.UseVisualStyleBackColor = true;
@@ -125,6 +125,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.MinimumSize = new System.Drawing.Size(1080, 724);
             this.Name = "AdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);

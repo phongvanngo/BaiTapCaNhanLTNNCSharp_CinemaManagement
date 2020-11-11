@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaManagement.Models
 {
-    class ShowTimeModel
+    public class ShowTimeModel
     {
         public string ShowTimeID { get; set; }
         public string TheaterID { get; set; }
